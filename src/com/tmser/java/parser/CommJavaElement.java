@@ -17,6 +17,16 @@ import java.util.Objects;
  */
 public abstract class CommJavaElement implements JavaElement{
 	
+	public CommJavaElement(){
+		
+	}
+	
+	public CommJavaElement(int start){
+		this.start = start;
+	}
+	
+	protected int start;
+	
 	private byte[] data;
 	
 	protected void parse(final byte[] classbytes){
@@ -31,4 +41,9 @@ public abstract class CommJavaElement implements JavaElement{
 	}
 	
 	protected abstract Range getPositionRange();
+	
+	@Override
+	public int getEndPos(){
+		return getPositionRange().end;
+	}
 }

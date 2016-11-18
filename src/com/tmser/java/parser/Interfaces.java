@@ -16,29 +16,28 @@ import java.util.List;
  * @author tjx1222
  * @version $Id: Magic.java, v 1.0 2016年11月6日 上午10:07:46 tjx1222 Exp $
  */
-public class ConstantPool implements JavaElement{
-	public final String NAME = "constant_pool";
+public class Interfaces implements JavaElement{
+	public final String NAME = "interfaces";
 	
-	private List<ConstantInfo> infos;
+	private List<Integer> interfaceIndexs;
 	
-	private int constantPoolCount;
+	private int interfaceCount;
 	
 	private int size;
 	
 	private byte[] data;
 	
-	public ConstantPool(byte[] classbytes,int constantPoolCount){
-		this.constantPoolCount = constantPoolCount;
+	private int start;
+	
+	public Interfaces(byte[] classbytes, int start, int interfaceCount){
+		this.interfaceCount = interfaceCount;
+		this.start = start;
 		parse(classbytes);
 	}
 	
 	@Override
 	public void print(){
-		int i = 1;
-		for(ConstantInfo info : infos){
-			System.out.println("costant " + i++ +" :");
-			System.out.println(info);
-		}
+		System.out.println("interface indexs "+interfaceIndexs);
 	}
 	
 
@@ -66,14 +65,16 @@ public class ConstantPool implements JavaElement{
 	 */
 	private void parse(byte[] classbytes) {
 		this.size = 0;
-		this.infos = new ArrayList<ConstantInfo>();
-		for(int i=0;i<constantPoolCount;i++){
-			ConstantInfo ci = ConstantInfo.parse(classbytes,10+size);
-			infos.add(ci);
-			this.size += ci.getSize();
+		this.interfaceIndexs = new ArrayList<Integer>();
+		int st = start;
+		for(int i=0;i<interfaceCount;i++){
+			this.size +=2;
+			interfaceIndexs.add(Integer.valueOf(
+					CodeUtils.getShort(Arrays.copyOfRange(classbytes,st,st+size))));
+			st += 2;
 		}
 		
-		this.data = Arrays.copyOfRange(classbytes, 10, 10+size);
+		this.data = Arrays.copyOfRange(classbytes, start, start+size);
 	}
 
 	/**
@@ -82,7 +83,7 @@ public class ConstantPool implements JavaElement{
 	 */
 	@Override
 	public int getEndPos() {
-		return 10+size;
+		return start+size;
 	}
 	
 	

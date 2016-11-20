@@ -15,8 +15,8 @@ package com.tmser.java.parser;
 public class FieldCount extends CommJavaElement{
 	public final String NAME = "field_count";
 	
-	public FieldCount(int start){
-		super(start);
+	public FieldCount(byte[] classbytes,int start){
+		super(classbytes,start);
 	}
 	
 	@Override

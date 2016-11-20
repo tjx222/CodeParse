@@ -15,9 +15,16 @@ package com.tmser.java.parser;
 public class ConstantPoolCount extends CommJavaElement {
 	public final String NAME = "constant_pool_count";
 	
+	private int constantPoolCount;
+	
+	public ConstantPoolCount(byte[] classbytes){
+		super(classbytes,8);
+		this.constantPoolCount = CodeUtils.getInt(getData());
+	}
+	
 	@Override
 	public void print(){
-		System.out.printf("%d",CodeUtils.getShort(getData()));
+		System.out.printf("%d",constantPoolCount);
 	}
 	
 	@Override
@@ -32,6 +39,10 @@ public class ConstantPoolCount extends CommJavaElement {
 	@Override
 	public String getName() {
 		return NAME;
+	}
+
+	public int getConstantPoolCount() {
+		return constantPoolCount;
 	}
 	
 	

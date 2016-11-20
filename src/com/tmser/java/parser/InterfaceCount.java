@@ -15,8 +15,8 @@ package com.tmser.java.parser;
 public class InterfaceCount extends CommJavaElement{
 	public final String NAME = "interface_count";
 	
-	public InterfaceCount(int start){
-		super(start);
+	public InterfaceCount(byte[] classbytes,int start){
+		super(classbytes,start);
 	}
 	
 	@Override

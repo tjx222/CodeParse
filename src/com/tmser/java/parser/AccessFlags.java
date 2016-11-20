@@ -31,14 +31,16 @@ public class AccessFlags extends CommJavaElement {
 			
 	public final int ACC_ENUM =	0x4000; //	Declared as an enum type.
 	
+	private int accessFlags;
 	
-	public AccessFlags(int start){
-		super(start);
+	public AccessFlags(byte[] classbytes, int start){
+		super(classbytes,start);
+		this.accessFlags = CodeUtils.getInt(getData());
 	}
 	
 	@Override
 	public void print(){
-		System.out.println(Integer.toBinaryString(CodeUtils.getShort(getData())));
+		System.out.println(Integer.toBinaryString(accessFlags));
 	}
 	
 	@Override

@@ -15,8 +15,8 @@ package com.tmser.java.parser;
 public class MethodCount extends CommJavaElement{
 	public final String NAME = "method_count";
 	
-	public MethodCount(int start){
-		super(start);
+	public MethodCount(byte[] classbytes,int start){
+		super(classbytes,start);
 	}
 	
 	@Override

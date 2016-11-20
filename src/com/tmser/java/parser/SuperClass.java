@@ -16,8 +16,8 @@ public class SuperClass extends CommJavaElement{
 	
 	public final String NAME = "superclass";
 	
-	public SuperClass(int start) {
-		super(start);
+	public SuperClass(byte[] classbytes,int start) {
+		super(classbytes,start);
 	}
 	
 	@Override

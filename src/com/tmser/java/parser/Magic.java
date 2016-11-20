@@ -15,6 +15,10 @@ package com.tmser.java.parser;
 public class Magic extends CommJavaElement {
 	public final String NAME = "magic";
 	
+	public Magic(final byte[] classbytes){
+		super(classbytes,0);
+	}
+	
 	@Override
 	public void print(){
 		for(byte b : getData()){

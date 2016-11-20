@@ -15,8 +15,8 @@ package com.tmser.java.parser;
 public class ThisClass extends CommJavaElement{
 	public final String NAME = "constant_pool";
 	
-	public ThisClass(int start){
-		super(start);
+	public ThisClass(byte[] classbytes,int start){
+		super(classbytes,start);
 	}
 	
 	@Override

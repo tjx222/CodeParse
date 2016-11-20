@@ -21,13 +21,17 @@ public abstract class CommJavaElement implements JavaElement{
 		
 	}
 	
-	public CommJavaElement(int start){
+	public CommJavaElement(final byte[] classbytes,int start){
 		this.start = start;
+		parse(classbytes);
 	}
 	
 	protected int start;
 	
-	private byte[] data;
+	/**
+	 * 当前元素包含的数据
+	 */
+	protected byte[] data;
 	
 	protected void parse(final byte[] classbytes){
 		if(Objects.nonNull(classbytes)){

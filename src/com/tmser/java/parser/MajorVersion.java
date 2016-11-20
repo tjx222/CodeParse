@@ -15,9 +15,16 @@ package com.tmser.java.parser;
 public class MajorVersion extends CommJavaElement {
 	public final String NAME = "major_version";
 	
+	private int majorVersion;
+	
+	public MajorVersion(final byte[] classbytes){
+		super(classbytes,6);
+		this.majorVersion = CodeUtils.getInt(getData());
+	}
+	
 	@Override
 	public void print(){
-		System.out.printf("%d",CodeUtils.getShort(getData()));
+		System.out.printf("%d",majorVersion);
 	}
 	
 	@Override
@@ -33,7 +40,9 @@ public class MajorVersion extends CommJavaElement {
 	public String getName() {
 		return NAME;
 	}
-	
-	
+
+	public int getMajorVersion() {
+		return majorVersion;
+	}
 	
 }

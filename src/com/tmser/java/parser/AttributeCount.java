@@ -15,8 +15,8 @@ package com.tmser.java.parser;
 public class AttributeCount extends CommJavaElement{
 	public final String NAME = "attribute_count";
 	
-	public AttributeCount(int start){
-		super(start);
+	public AttributeCount(final byte[] classbytes,int start){
+		super(classbytes,start);
 	}
 	
 	@Override

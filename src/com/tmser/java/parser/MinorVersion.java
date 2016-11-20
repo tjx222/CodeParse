@@ -15,9 +15,16 @@ package com.tmser.java.parser;
 public class MinorVersion extends CommJavaElement {
 	public final String NAME = "minor_version";
 	
+	private int minorVersion;
+	
+	public MinorVersion(final byte[] classbytes){
+		super(classbytes,6);
+		this.minorVersion = CodeUtils.getInt(getData());
+	}
+	
 	@Override
 	public void print(){
-		System.out.printf("%d",CodeUtils.getShort(getData()));
+		System.out.printf("%d",minorVersion);
 	}
 	
 	@Override

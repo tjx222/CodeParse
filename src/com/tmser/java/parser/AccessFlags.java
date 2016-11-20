@@ -56,6 +56,10 @@ public class AccessFlags extends CommJavaElement {
 	public String getName() {
 		return NAME;
 	}
+
+	public int getAccessFlags() {
+		return accessFlags;
+	}
 	
 	
 	

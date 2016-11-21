@@ -82,23 +82,36 @@ public class CodeUtils {
     
     public static short getShort(byte[] bytes)
     {
-        return (short) ((0xff & bytes[1]) | (0xff00 & (bytes[0] << 8)));
+    	return (short) getInt(bytes);
     }
 
     public static char getChar(byte[] bytes)
     {
-        return (char) ((0xff & bytes[1]) | (0xff00 & (bytes[0] << 8)));
+        return (char) getInt(bytes);
     }
 
     public static int getInt(byte[] bytes)
     {
-        return (0xff & bytes[3]) | (0xff00 & (bytes[2] << 8)) | (0xff0000 & (bytes[1] << 16)) | (0xff000000 & (bytes[0] << 24));
+        int end, len = end = bytes.length > 4 ? 4 : bytes.length;
+        int sum = 0;
+        for(int i=0;i<end;i++){
+        	int n = bytes[i] & 0xff;
+        	n <<= (--len) * 8;
+        	sum = n + sum;
+        }
+    	return sum;
     }
    
     public static long getLong(byte[] bytes)
     {
-        return(0xffL & bytes[7]) | (0xff00L & ((long)bytes[6] << 8)) | (0xff0000L & ((long)bytes[5] << 16)) | (0xff000000L & ((long)bytes[4] << 24))
-         | (0xff00000000L & ((long)bytes[3] << 32)) | (0xff0000000000L & ((long)bytes[2] << 40)) | (0xff000000000000L & ((long)bytes[1] << 48)) | (0xff00000000000000L & ((long)bytes[0] << 56));
+        int end, len = end = bytes.length > 8 ? 8 : bytes.length;
+        long sum = 0;
+        for(int i=0;i<end;i++){
+        	long n = bytes[i] & 0xff;
+        	n <<= (--len) * 8;
+        	sum = n + sum;
+        }
+    	return sum;
     }
 
     public static float getFloat(byte[] bytes)

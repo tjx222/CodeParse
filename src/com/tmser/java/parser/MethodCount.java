@@ -15,13 +15,15 @@ package com.tmser.java.parser;
 public class MethodCount extends CommJavaElement{
 	public final String NAME = "method_count";
 	
+	private int count;
 	public MethodCount(byte[] classbytes,int start){
 		super(classbytes,start);
+		this.count = CodeUtils.getInt(getData());
 	}
 	
 	@Override
 	public void print(){
-		System.out.printf("%d",CodeUtils.getShort(getData()));
+		System.out.printf("%d",count);
 	}
 	
 	@Override
@@ -36,5 +38,9 @@ public class MethodCount extends CommJavaElement{
 	@Override
 	public String getName() {
 		return NAME;
+	}
+	
+	public int getCount() {
+		return count;
 	}
 }

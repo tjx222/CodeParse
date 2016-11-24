@@ -33,12 +33,14 @@ public class ConstantPool implements JavaElement{
 	}
 	
 	@Override
-	public void print(){
+	public String print(){
+		StringBuilder sb = new StringBuilder();
 		int i = 1;
 		for(ConstantInfo info : infos){
-			System.out.println("costant " + i++ +" :");
-			System.out.println(info);
+			sb.append("costant ").append(i++).append(": ")
+			.append(info);
 		}
+		return sb.toString();
 	}
 	
 

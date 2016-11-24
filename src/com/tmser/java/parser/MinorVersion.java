@@ -23,8 +23,8 @@ public class MinorVersion extends CommJavaElement {
 	}
 	
 	@Override
-	public void print(){
-		System.out.printf("%d",minorVersion);
+	public String print(){
+		return String.valueOf(minorVersion);
 	}
 	
 	@Override

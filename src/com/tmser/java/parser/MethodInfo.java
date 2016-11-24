@@ -50,9 +50,12 @@ public class MethodInfo  extends CommJavaElement{
 		 * @see com.tmser.java.parser.JavaElement#print()
 		 */
 		@Override
-		public void print() {
-			System.out.println("method "+NAME+": [accessTag = " + accessTag +"], [nameIndex = "+
-					nameIndex + "],[descIndex = "+descIndex+"],[attrCount = "+attrCount+"]");
+		public String print() {
+			return new StringBuilder("method ").append(NAME)
+					.append(": [accessTag = ").append(accessTag)
+					.append("], [nameIndex = ").append(nameIndex)
+					.append("],[descIndex = ").append(descIndex)
+					.append("],[attrCount = ").append(attrCount).append("]").toString();
 		}
 
 		/**

@@ -16,6 +16,6 @@ public interface JavaElement {
 
 	String getName();
 	byte[] getData();
-	void print();
+	String print();
 	int getEndPos();
 }

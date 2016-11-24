@@ -35,10 +35,12 @@ public class MethodInfos extends CommJavaElement{
 	}
 	
 	@Override
-	public void print(){
+	public String print(){
+		StringBuilder sb = new StringBuilder();
 		for(MethodInfo info : infos){
-			info.print();
+			sb.append("\t").append(info.print()).append("\n");
 		}
+		return sb.toString();
 	}
 	
 

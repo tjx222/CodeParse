@@ -23,8 +23,8 @@ public class MajorVersion extends CommJavaElement {
 	}
 	
 	@Override
-	public void print(){
-		System.out.printf("%d",majorVersion);
+	public String print(){
+		return String.valueOf(majorVersion);
 	}
 	
 	@Override

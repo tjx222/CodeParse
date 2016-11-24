@@ -20,10 +20,12 @@ public class Magic extends CommJavaElement {
 	}
 	
 	@Override
-	public void print(){
+	public String print(){
+		StringBuilder sb = new StringBuilder();
 		for(byte b : getData()){
-			System.out.printf("%x",b);
+			sb.append(Integer.toHexString(b&0xff));
 		}
+		return sb.toString();
 	}
 	
 	@Override

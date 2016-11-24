@@ -50,9 +50,12 @@ public class FieldInfo  extends CommJavaElement{
 		 * @see com.tmser.java.parser.JavaElement#print()
 		 */
 		@Override
-		public void print() {
-			System.out.println("field "+NAME+": [accessTag = " + accessTag +"], [nameIndex = "+
-					nameIndex + "],[descIndex = "+descIndex+"],[attrCount = "+attrCount+"]");
+		public String print() {
+			return new StringBuilder("field ").append(NAME)
+					.append(": [accessTag = ").append(accessTag)
+					.append("], [nameIndex = ").append(nameIndex)
+					.append("],[descIndex = ").append(descIndex)
+					.append("],[attrCount = ").append(attrCount).append("]").toString();
 		}
 
 		/**

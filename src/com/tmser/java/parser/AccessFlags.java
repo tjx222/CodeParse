@@ -39,8 +39,8 @@ public class AccessFlags extends CommJavaElement {
 	}
 	
 	@Override
-	public void print(){
-		System.out.println(Integer.toBinaryString(accessFlags));
+	public String print(){
+		return Integer.toBinaryString(accessFlags);
 	}
 	
 	@Override
@@ -60,7 +60,5 @@ public class AccessFlags extends CommJavaElement {
 	public int getAccessFlags() {
 		return accessFlags;
 	}
-	
-	
-	
+
 }

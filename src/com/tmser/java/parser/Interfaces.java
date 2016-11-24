@@ -36,8 +36,8 @@ public class Interfaces implements JavaElement{
 	}
 	
 	@Override
-	public void print(){
-		System.out.println("interface indexs "+interfaceIndexs);
+	public String print(){
+		return "interface indexs " + interfaceIndexs;
 	}
 	
 

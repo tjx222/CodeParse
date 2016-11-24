@@ -50,4 +50,11 @@ public abstract class CommJavaElement implements JavaElement{
 	public int getEndPos(){
 		return getPositionRange().end;
 	}
+	
+	@Override
+	public String toString(){
+		return new StringBuilder(getName()).append(":\n")
+				.append(print()).append("\n")
+				.toString();
+	}
 }

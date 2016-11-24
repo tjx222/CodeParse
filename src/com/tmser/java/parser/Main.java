@@ -36,14 +36,7 @@ public class Main {
 			byte bt = (byte) 0b11001100;
 			System.out.println(Integer.toBinaryString(bt & 0xff));
 			
-			MajorVersion mv = new MajorVersion(buffer);
-			mv.print();
-			
-			ConstantPoolCount cpc = new ConstantPoolCount(buffer);
-			cpc.print();
-			
-			ConstantPool info = new ConstantPool(buffer,CodeUtils.getShort(cpc.getData())-1);
-			info.print();
-				
+			ClassStruct cs = new ClassStruct(buffer);
+			System.out.println(cs.toString());
 	}
 }

@@ -23,8 +23,8 @@ public class ConstantPoolCount extends CommJavaElement {
 	}
 	
 	@Override
-	public void print(){
-		System.out.printf("%d",count);
+	public String print(){
+		return String.valueOf(count);
 	}
 	
 	@Override

@@ -35,10 +35,12 @@ public class FiledInfos extends CommJavaElement{
 	}
 	
 	@Override
-	public void print(){
+	public String print(){
+		StringBuilder sb = new StringBuilder();
 		for(FieldInfo info : infos){
-			info.print();
+			sb.append("\t").append(info.print()).append("\n");
 		}
+		return sb.toString();
 	}
 	
 

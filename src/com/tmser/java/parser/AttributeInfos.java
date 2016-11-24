@@ -35,10 +35,13 @@ public class AttributeInfos extends CommJavaElement{
 	}
 	
 	@Override
-	public void print(){
+	public String print(){
+		StringBuilder sb = new StringBuilder();
 		for(AttributeInfo info : infos){
-			info.print();
+			sb.append("\t").append(info.print()).append("\n");
 		}
+		
+		return sb.toString();
 	}
 	
 

@@ -45,9 +45,9 @@ public class AttributeInfo extends CommJavaElement{
 	 * @see com.tmser.java.parser.JavaElement#print()
 	 */
 	@Override
-	public void print() {
-		System.out.println(NAME+": [attrNameIndex = " + attrNameIndex +"], [attrLength ="+
-				attrLength + "]");
+	public String print() {
+		return NAME+": [attrNameIndex = " + attrNameIndex +"], [attrLength ="+
+				attrLength + "]";
 	}
 	
 	@Override

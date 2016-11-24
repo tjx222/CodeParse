@@ -4,6 +4,9 @@
  */
 package com.tmser.java.parser;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * <pre>
  *  类文件结构解析图
@@ -13,6 +16,8 @@ package com.tmser.java.parser;
  * @version $Id: ClassStruct.java, v 1.0 2016年11月21日 下午9:51:13 tjx1222 Exp $
  */
 public class ClassStruct {
+	
+	private List<JavaElement>  elements = new ArrayList<>();
 	
 	public ClassStruct(byte[] classbytes){
 		this.magic =  new Magic(classbytes);
@@ -37,6 +42,22 @@ public class ClassStruct {
 		this.attributeInfos = new AttributeInfos(classbytes, this.attributeCount.getEndPos(), 
 				this.getAttributeCount().getCount());
 		
+		elements.add(this.attributeInfos);
+		elements.add(this.attributeCount);
+		elements.add(this.methodInfos);
+		elements.add(this.methodCount);
+		elements.add(this.filedInfos);
+		elements.add(this.fieldCount);
+		elements.add(this.interfaces);
+		elements.add(this.interfaceCount);
+		elements.add(this.superClass);
+		elements.add(this.thisClass);
+		elements.add(this.accessFlags);
+		elements.add(this.constantPool);
+		elements.add(this.constantPoolCount);
+		elements.add(this.majorVersion);
+		elements.add(this.minVersion);
+		elements.add(this.magic);
 	}
 
 	private Magic magic;
@@ -135,6 +156,10 @@ public class ClassStruct {
 		return attributeInfos;
 	}
 	
-	
+	@Override
+	public String toString(){
+		
+		return null;
+	}
 	
 }

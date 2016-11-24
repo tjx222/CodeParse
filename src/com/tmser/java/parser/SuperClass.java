@@ -16,13 +16,16 @@ public class SuperClass extends CommJavaElement{
 	
 	public final String NAME = "superclass";
 	
+	private int superClassIndex;
+	
 	public SuperClass(byte[] classbytes,int start) {
 		super(classbytes,start);
+		superClassIndex = CodeUtils.getInt(getData());
 	}
 	
 	@Override
-	public void print(){
-		System.out.printf("%d",CodeUtils.getShort(getData()));
+	public String print(){
+		return String.valueOf(superClassIndex);
 	}
 	
 	@Override

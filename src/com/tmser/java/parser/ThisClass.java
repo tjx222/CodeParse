@@ -15,13 +15,16 @@ package com.tmser.java.parser;
 public class ThisClass extends CommJavaElement{
 	public final String NAME = "constant_pool";
 	
+	private int thisClassIndex;
+	
 	public ThisClass(byte[] classbytes,int start){
 		super(classbytes,start);
+		thisClassIndex = CodeUtils.getInt(getData());
 	}
 	
 	@Override
-	public void print(){
-		System.out.printf("%d",CodeUtils.getShort(getData()));
+	public String print(){
+		return String.valueOf(thisClassIndex);
 	}
 	
 	@Override
